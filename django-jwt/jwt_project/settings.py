@@ -40,7 +40,23 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_yasg',
     'auth_app',
+    'drf_spectacular',
 ]
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.TokenAuthentication",
+    ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "JWT 인증 API",
+    "DESCRIPTION": "로그인 / 회원가입 / 사용자 정보 API 문서입니다.",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
+}
+
 
 # JWT
 SECRET_KEY = "YjlmODZjOWVlYzlhNGE5MGI3NmE2M2E1ZmJkZGU3ZTFjODNmNmQyOTlkZmU0ZTc0OGU0NWNkOTFjYmZkNzQyNw=="

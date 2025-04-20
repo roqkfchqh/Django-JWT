@@ -18,8 +18,11 @@ from django.urls import path, include
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from drf_spectacular.views import (
+    SpectacularAPIView, SpectacularSwaggerView
+)
 
-schema_view = get_schema_view(
+schema_view = get_schema_view( 
    openapi.Info(
       title="JWT 인증 API",
       default_version='v1',
@@ -30,6 +33,7 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path("schema/", SpectacularAPIView.as_view(), name="schema"),
+    path("swagger/", SpectacularSwaggerView.as_view(url_name="schema"), name="swagger-ui"),
     path('', include('auth_app.urls')),
 ]

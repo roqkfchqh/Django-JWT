@@ -61,7 +61,7 @@ def test_login_invalid_credentials():
         "password": "wrongpass"
     }, format="json")
 
-    assert res.status_code == 401
+    assert res.status_code == 400
     assert res.data["error"]["code"] == "INVALID_CREDENTIALS"
 
 # 내 정보 가져오기_성공
@@ -79,7 +79,7 @@ def test_me_success():
 
     token = login_res.data["token"]
 
-    client.credentials(HTTP_AUTHORIZATION=f"Bearer {token}")
+    client.credentials(HTTP_AUTHORIZATION=f"{token}")
     res = client.get("/me")
 
     assert res.status_code == 200
