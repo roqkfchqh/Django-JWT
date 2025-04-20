@@ -5,12 +5,40 @@
 ---
 
 ## 🟧 목차
+0. [테스트코드 실행법](#테스트코드-실행법)
 1. [파일 구조](#파일-구조)
 2. [기술 스택](#기술-스택)
 3. [API](#api)
 4. [JWT](#JWT)
 5. [EC2 자동 배포 스크립트](#ec2-자동-배포-스크립트-deploysh)
 6. [Swagger 연동](#swagger-연동)
+
+___
+
+## 🟧 테스트코드 실행법
+
+1. 프로젝트 클론
+```bash
+git clone <repo-url>
+cd Django-JWT
+```
+
+2. 가상환경 생성 및 활성화
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+3. 의존성 설치
+```bash
+pip install -r requirements.txt
+```
+
+4. 테스트 코드 실행
+```bash
+cd django-jwt
+pytest
+```
 
 ---
 ## 🟧 파일 구조
