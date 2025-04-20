@@ -41,19 +41,10 @@ INSTALLED_APPS = [
     'auth_app',
 ]
 
-# JWT 인증 클래스 지정
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ),
-}
-
-# 토큰 라이프타임
-from datetime import timedelta
-SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
-}
+# JWT
+SECRET_KEY = "YjlmODZjOWVlYzlhNGE5MGI3NmE2M2E1ZmJkZGU3ZTFjODNmNmQyOTlkZmU0ZTc0OGU0NWNkOTFjYmZkNzQyNw=="
+JWT_ALGORITHM = "HS256"
+JWT_EXP_DELTA_SECONDS = 1800
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
