@@ -6,6 +6,7 @@ class InMemoryUserStore:
         if username in self.users:
             return False
         self.users[username] = {
+            "id": len(self.users) + 1,
             "username": username,
             "password": password,
             "nickname": nickname
