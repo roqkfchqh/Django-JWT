@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-lce4d42-%6%56a%k26!k#8dc46g*7s9=24)^bi1ixg)dwci!d#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+#    'ec2' #ec2 내부에서 수정
+]
 
 
 # Application definition
@@ -40,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'auth_app',
     'drf_spectacular',
+    'corsheaders',
 ]
 
 REST_FRAMEWORK = {
@@ -56,6 +59,10 @@ SPECTACULAR_SETTINGS = {
     "SERVE_INCLUDE_SCHEMA": False,
 }
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+#    "http://ec2:8000", # ec2 내부에서 수정
+]
 
 # JWT
 SECRET_KEY = "YjlmODZjOWVlYzlhNGE5MGI3NmE2M2E1ZmJkZGU3ZTFjODNmNmQyOTlkZmU0ZTc0OGU0NWNkOTFjYmZkNzQyNw=="
@@ -63,6 +70,7 @@ JWT_ALGORITHM = "HS256"
 JWT_EXP_DELTA_SECONDS = 1800
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
