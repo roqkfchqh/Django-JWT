@@ -78,8 +78,9 @@ sudo -u ubuntu bash -lc "
 # --- 백그라운드 실행 ---
 sudo -u ubuntu bash -lc "
   cd \$APP_DIR &&
-  source venv/bin/activate &&
-  nohup python3 manage.py runserver 0.0.0.0:\$PORT &
+  source venv/bin/activate
+  cd django-jwt
+  python manage.py runserver 0.0.0.0:\$PORT
 "
 EOF
 
